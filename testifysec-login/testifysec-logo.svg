@@ -1,0 +1,17 @@
+<svg width="800" height="200" viewBox="0 0 800 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0)">
+<path d="M6.99995 18.0001L6.99995 180L93 180C129.45 180 159 150.45 159 114V84C159 47.55 129.45 18.0001 93 18.0001H6.99995Z" fill="#1E2B7A"/>
+<path d="M93 18.0001C129.45 18.0001 159 47.55 159 84V114C159 150.45 129.45 180 93 180V18.0001Z" fill="#1E2B7A"/>
+<path d="M6.99995 18.0001H93V180C56.55 180 26.9999 150.45 26.9999 114V38C26.9999 26.95 16.05 18.0001 6.99995 18.0001Z" fill="#1E2B7A"/>
+<path d="M93 18.0001V84H159C159 47.55 129.45 18.0001 93 18.0001Z" fill="#1E2B7A"/>
+<path d="M6.99995 180V114H73C73 150.45 43.45 180 6.99995 180Z" fill="#1E2B7A"/>
+<path d="M26.9999 38V114C26.9999 150.45 56.55 180 93 180V114H26.9999V38Z" fill="#1E2B7A"/>
+<path d="M159 84V114C159 150.45 129.45 180 93 180V114H159V84Z" fill="#1E2B7A"/>
+</g>
+<text x="247" y="64" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#1E2B7A">TESTIFYSEC</text>
+<defs>
+<clipPath id="clip0">
+<rect width="166" height="200" fill="white"/>
+</clipPath>
+</defs>
+</svg>
