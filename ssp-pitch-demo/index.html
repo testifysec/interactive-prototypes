@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Five-Minute SSP Onboarding | Interactive Demo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': {
+                            600: '#2563eb',
+                            700: '#1d4ed8'
+                        },
+                        'heading': '#000066',
+                        'testify-orange': '#f97316',
+                        'success-green': '#10b981',
+                        'error-red': '#ef4444'
+                    },
+                    fontFamily: {
+                        'sans': ['DM Sans', 'system-ui', 'sans-serif'],
+                        'mono': ['DM Mono', 'Courier New', 'monospace']
+                    },
+                    maxWidth: {
+                        '7xl': '1400px',
+                        '8xl': '1600px'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="font-sans text-slate-900 bg-slate-50 leading-relaxed">
+    <!-- Landing Page -->
+    <section id="landing" class="page active">
+        <div class="max-w-7xl mx-auto px-8 2xl:max-w-8xl 2xl:px-12">
+            <header class="flex justify-between items-center mb-16 py-4">
+                <div class="flex items-center gap-3 text-xl font-semibold">
+                    <img src="testifysec-logo.png" alt="TestifySec" class="h-8 w-auto">
+                </div>
+                <div class="bg-testify-orange text-white px-3 py-1 rounded-full text-sm font-medium uppercase tracking-wide">Interactive Demo</div>
+            </header>
+
+            <div class="text-center mb-16">
+                <h1 class="text-5xl lg:text-6xl 2xl:text-7xl font-bold leading-tight mb-6 2xl:mb-10">
+                    From Signup to First SSP<br>
+                    <span class="text-primary-600">in Under 5 Minutes</span>
+                </h1>
+                <p class="text-xl lg:text-2xl text-slate-600 max-w-3xl mx-auto">Experience the streamlined onboarding journey that transforms how new users discover the platform's value.</p>
+            </div>
+
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 2xl:gap-20 mb-16 lg:mb-20 2xl:mb-24">
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-slate-200">
+                    <h3 class="text-2xl font-bold text-heading mb-6">❌ Current State</h3>
+                    <ul class="space-y-3 text-slate-700">
+                        <li class="flex items-start gap-3">
+                            <span class="text-red-500 mt-1">•</span>
+                            Fragmented, confusing experience
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-red-500 mt-1">•</span>
+                            No clear guidance or education
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-red-500 mt-1">•</span>
+                            High abandonment rates
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-red-500 mt-1">•</span>
+                            Slow time to first value
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-slate-200">
+                    <h3 class="text-2xl font-bold text-heading mb-6">✅ Proposed Solution</h3>
+                    <ul class="space-y-3 text-slate-700">
+                        <li class="flex items-start gap-3">
+                            <span class="text-green-500 mt-1">•</span>
+                            Guided 4-step onboarding flow
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-green-500 mt-1">•</span>
+                            Contextual education at each step
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-green-500 mt-1">•</span>
+                            Real-time feedback & progress
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-green-500 mt-1">•</span>
+                            5-minute time to first SSP
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button class="inline-flex items-center gap-3 bg-primary-600 hover:bg-primary-700 text-white text-xl font-semibold px-12 py-4 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-xl" onclick="startDemo()">
+                    Experience the Journey
+                    <span class="transform transition-transform group-hover:translate-x-1">→</span>
+                </button>
+                <p class="font-mono text-slate-500 text-sm mt-4">Interactive demo • Takes ~3 minutes</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Phase 1: Signup & Organization Setup -->
+    <section id="phase1" class="page demo-page">
+        <div class="max-w-7xl mx-auto px-8 2xl:max-w-8xl 2xl:px-12">
+            <div class="flex flex-col lg:flex-row lg:justify-between lg:items-center gap-6 mb-8 py-4">
+                <button class="inline-flex items-center gap-2 text-slate-600 hover:text-slate-900 font-medium transition-colors" onclick="goToLanding()">
+                    ← Back to Overview
+                </button>
+                <div class="flex justify-center lg:justify-start gap-4">
+                    <div class="flex items-center justify-center w-8 h-8 rounded-full bg-primary-600 text-white font-bold text-sm">1</div>
+                    <div class="flex items-center justify-center w-8 h-8 rounded-full bg-slate-200 text-slate-600 font-bold text-sm">2</div>
+                    <div class="flex items-center justify-center w-8 h-8 rounded-full bg-slate-200 text-slate-600 font-bold text-sm">3</div>
+                    <div class="flex items-center justify-center w-8 h-8 rounded-full bg-slate-200 text-slate-600 font-bold text-sm">4</div>
+                </div>
+                <div class="font-semibold text-slate-900 text-center lg:text-left">Phase 1: Signup & Organization</div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-5 gap-12 lg:gap-16 2xl:gap-20 items-start">
+                <div class="demo-screen xl:col-span-3">
+                    <div class="browser-chrome">
+                        <div class="browser-dots">
+                            <span></span><span></span><span></span>
+                        </div>
+                        <div class="browser-url">judge.testifysec.com/signup</div>
+                    </div>
+
+                    <div class="screen-content">
+                        <div class="signup-form">
+                            <h2>Get started with TestifySec Platform</h2>
+                            <p>Create your account and start generating SSPs in minutes</p>
+
+                            <div class="oauth-buttons">
+                                <button class="oauth-btn github-btn" onclick="simulateGitHubAuth()">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.30 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                    </svg>
+                                    Continue with GitHub
+                                </button>
+                                <button class="oauth-btn gitlab-btn" onclick="simulateGitLabAuth()">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2.0845l5.2924 6.4615h5.7076l-2.1846 14.4077-8.815-12.3077-8.815 12.3077-2.1846-14.4077h5.7076l5.2924-6.4615z"/>
+                                    </svg>
+                                    Continue with GitLab
+                                </button>
+                            </div>
+
+                            <div class="divider">
+                                <span>or</span>
+                            </div>
+
+                            <form class="space-y-4">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                    <input type="email" placeholder="Email address" class="w-full px-3 py-2.5 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent transition-all">
+                                    <input type="password" placeholder="Password" class="w-full px-3 py-2.5 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent transition-all">
+                                </div>
+                                
+                                <div class="relative">
+                                    <label for="org-name" class="block text-sm font-medium text-slate-700 mb-1.5">Organization Name</label>
+                                    <input type="text" id="org-name" placeholder="Enter organization name..." class="w-full px-3 py-2.5 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent transition-all">
+                                    <div class="auto-detect-badge hidden" id="autoDetect">
+                                        ✨ Auto-detected from GitHub
+                                    </div>
+                                    <div class="mt-1.5">
+                                        <span class="tooltip-trigger text-xs text-primary-600 cursor-pointer hover:text-primary-700">What is an organization? ℹ️</span>
+                                        <div class="tooltip-content">
+                                            Organizations in the TestifySec Platform help you group related products and manage team access. Think of it as your company or team workspace.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button type="button" class="w-full bg-primary-600 hover:bg-primary-700 text-white px-4 py-2.5 rounded-lg font-medium transition-colors mt-4" onclick="completeSignup()">
+                                    Create Account
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="demo-explanation xl:col-span-2 xl:sticky xl:top-8">
+                    <h3 class="text-2xl font-bold text-heading mb-6">✨ Key Improvements</h3>
+                    <ul class="space-y-4 text-slate-700">
+                        <li class="flex items-start gap-3">
+                            <span class="text-primary-600 mt-1 font-bold">•</span>
+                            <div><strong>Auto-detection:</strong> GitHub metadata prefills organization info</div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-primary-600 mt-1 font-bold">•</span>
+                            <div><strong>Contextual help:</strong> Tooltips explain new concepts</div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-primary-600 mt-1 font-bold">•</span>
+                            <div><strong>Streamlined fields:</strong> Only essential information collected</div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-primary-600 mt-1 font-bold">•</span>
+                            <div><strong>Clear progress:</strong> Users know they're in step 1 of 4</div>
+                        </li>
+                    </ul>
+                    
+                    <div class="flex flex-col gap-3 mt-8">
+                        <button class="bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-medium transition-colors" onclick="simulateGitHubAuth()">Try GitHub Signup</button>
+                        <button class="bg-slate-200 hover:bg-slate-300 text-slate-700 px-6 py-3 rounded-lg font-medium transition-colors" onclick="nextPhase()">Skip to Phase 2 →</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Phase 2: GitHub App Installation -->
+    <section id="phase2" class="page demo-page">
+        <div class="container">
+            <div class="demo-navigation">
+                <button class="nav-back" onclick="goToPhase(1)">← Back to Phase 1</button>
+                <div class="progress-indicator">
+                    <div class="step complete">✓</div>
+                    <div class="step active">2</div>
+                    <div class="step">3</div>
+                    <div class="step">4</div>
+                </div>
+                <div class="phase-title">Phase 2: GitHub App Installation</div>
+            </div>
+
+            <div class="demo-content">
+                <div class="demo-screen">
+                    <div class="browser-chrome">
+                        <div class="browser-dots">
+                            <span></span><span></span><span></span>
+                        </div>
+                        <div class="browser-url">judge.testifysec.com/onboarding/integrations</div>
+                    </div>
+
+                    <div class="screen-content">
+                        <div class="integration-setup">
+                            <h2>Connect Your Code Repositories</h2>
+                            <p>The platform needs access to your repositories to analyze code and generate accurate SSPs.</p>
+
+                            <div class="why-section">
+                                <h3>Why do we need repository access?</h3>
+                                <div class="benefit-list">
+                                    <div class="benefit">
+                                        <div class="benefit-icon">🔍</div>
+                                        <div>
+                                            <strong>Code Analysis</strong>
+                                            <p>Scan your repositories to identify security controls and dependencies</p>
+                                        </div>
+                                    </div>
+                                    <div class="benefit">
+                                        <div class="benefit-icon">📊</div>
+                                        <div>
+                                            <strong>Compliance Mapping</strong>
+                                            <p>Automatically map your code to compliance requirements</p>
+                                        </div>
+                                    </div>
+                                    <div class="benefit">
+                                        <div class="benefit-icon">⚡</div>
+                                        <div>
+                                            <strong>Real-time Updates</strong>
+                                            <p>Keep your SSP current as your code evolves</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="integration-options">
+                                <div class="integration-option">
+                                    <div class="integration-header">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="#24292f">
+                                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                        </svg>
+                                        <h3>GitHub</h3>
+                                        <span class="status" id="githubStatus">Not connected</span>
+                                    </div>
+                                    <p>Install the GitHub App to access your repositories and enable continuous monitoring.</p>
+                                    <button class="integration-btn github-btn" id="githubInstallBtn" onclick="simulateGitHubInstall()">
+                                        Install GitHub App
+                                    </button>
+                                </div>
+
+                                <div class="integration-option">
+                                    <div class="integration-header">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="#FC6D26">
+                                            <path d="M12 2.0845l5.2924 6.4615h5.7076l-2.1846 14.4077-8.815-12.3077-8.815 12.3077-2.1846-14.4077h5.7076l5.2924-6.4615z"/>
+                                        </svg>
+                                        <h3>GitLab</h3>
+                                        <span class="status" id="gitlabStatus">Not connected</span>
+                                    </div>
+                                    <p>Connect your GitLab instance to analyze repositories and track security controls.</p>
+                                    <button class="integration-btn gitlab-btn" id="gitlabInstallBtn" onclick="simulateGitLabInstall()">
+                                        Install GitLab App
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="repo-list hidden" id="repoList">
+                                <div class="list-header">
+                                    <h3>Your Repositories</h3>
+                                    <div class="repo-count">Found <span id="repoCount">0</span> repositories</div>
+                                </div>
+                                <div class="loading-repos" id="loadingRepos">
+                                    <div class="loading-spinner"></div>
+                                    <p>Loading repositories...</p>
+                                </div>
+                                <div class="repos" id="repos"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="demo-explanation">
+                    <h3>🎯 Educational Focus</h3>
+                    <ul>
+                        <li><strong>Clear benefits:</strong> Users understand why access is needed</li>
+                        <li><strong>Empty state:</strong> Shows exactly what changes after installation</li>
+                        <li><strong>Visual feedback:</strong> Real-time repo loading after installation</li>
+                        <li><strong>Trust building:</strong> Transparent about what we access and why</li>
+                    </ul>
+                    
+                    <div class="demo-controls">
+                        <button class="demo-btn" id="sidebarGitHubBtn" onclick="simulateGitHubInstall()">Install GitHub App</button>
+                        <button class="demo-btn" id="sidebarGitLabBtn" onclick="simulateGitLabInstall()">Install GitLab App</button>
+                        <button class="demo-btn secondary" id="phase3NextBtn" onclick="nextPhase()">Skip to Phase 3 →</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Phase 3: First Product Creation -->
+    <section id="phase3" class="page demo-page">
+        <div class="container">
+            <div class="demo-navigation">
+                <button class="nav-back" onclick="goToPhase(2)">← Back to Phase 2</button>
+                <div class="progress-indicator">
+                    <div class="step complete">✓</div>
+                    <div class="step complete">✓</div>
+                    <div class="step active">3</div>
+                    <div class="step">4</div>
+                </div>
+                <div class="phase-title">Phase 3: First Product Creation</div>
+            </div>
+
+            <div class="demo-content">
+                <div class="demo-screen">
+                    <div class="browser-chrome">
+                        <div class="browser-dots">
+                            <span></span><span></span><span></span>
+                        </div>
+                        <div class="browser-url">judge.testifysec.com/onboarding/product</div>
+                    </div>
+
+                    <div class="screen-content">
+                        <div class="product-creation">
+                            <h2>Create Your First Product</h2>
+                            <p>Products help you organize related repositories and generate targeted SSPs for specific systems or services.</p>
+
+                            <div class="space-y-6">
+                                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                                    <div class="space-y-4">
+                                        <h3 class="text-lg font-semibold text-heading mb-3">Product Details</h3>
+                                        <div class="space-y-3">
+                                            <div>
+                                                <label for="product-name" class="block text-sm font-medium text-slate-700 mb-1">Product Name *</label>
+                                                <input type="text" id="product-name" class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent transition-all" placeholder="e.g., Customer Portal">
+                                                <div class="text-xs text-slate-500 mt-1">Choose a name that represents your system or service</div>
+                                            </div>
+                                            
+                                            <div>
+                                                <label for="product-description" class="block text-sm font-medium text-slate-700 mb-1">Description</label>
+                                                <textarea id="product-description" class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent transition-all resize-vertical" rows="2" placeholder="Brief description of what this product does..."></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="space-y-4">
+                                        <h3 class="text-lg font-semibold text-heading mb-3">Repository Selection</h3>
+                                        <div class="bg-slate-50 p-4 rounded-lg space-y-3">
+                                            <div class="flex justify-between items-center text-sm">
+                                                <span>Choose repositories to include:</span>
+                                                <span class="selected-count text-primary-600 font-medium">0 selected</span>
+                                            </div>
+                                            
+                                            <div>
+                                                <input type="text" id="repoSearch" class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent transition-all" placeholder="🔍 Search repositories..." onkeyup="filterRepositories()">
+                                            </div>
+                                            
+                                            <div class="repo-checklist max-h-40 overflow-y-auto space-y-2" id="repoChecklist">
+                                                <!-- Repositories will be populated here -->
+                                            </div>
+                                            
+                                            <div class="flex gap-3 bg-white p-3 rounded border-l-4 border-primary-600">
+                                                <div class="text-base flex-shrink-0">💡</div>
+                                                <div class="text-xs">
+                                                    <strong class="block mb-1">What is a Product?</strong>
+                                                    <p class="text-slate-600 leading-relaxed">A product represents a system, service, or application that you want to generate an SSP for. It can include multiple repositories that work together to deliver functionality.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="text-center pt-4 border-t border-slate-200">
+                                    <button type="button" class="bg-primary-600 hover:bg-primary-700 text-white px-6 py-2.5 rounded-lg font-medium transition-colors" id="createProductBtn" onclick="createProduct()" disabled>
+                                        Create Product & Generate SSP
+                                    </button>
+                                    <p class="text-xs text-slate-500 mt-2">This will create your product and immediately start SSP generation</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="demo-explanation">
+                    <h3>🎯 Intuitive Design</h3>
+                    <ul>
+                        <li><strong>Clear concept:</strong> Users understand what a "product" represents</li>
+                        <li><strong>Contextual guidance:</strong> Examples and naming conventions help users choose</li>
+                        <li><strong>Visual selection:</strong> Easy repository selection with preview</li>
+                        <li><strong>Validation feedback:</strong> Real-time form validation with helpful errors</li>
+                        <li><strong>Progress clarity:</strong> Users know SSP generation starts immediately</li>
+                    </ul>
+                    
+                    <div class="demo-controls">
+                        <button class="demo-btn" id="guidanceBtn" onclick="showNamingGuidance()">Show Naming Examples</button>
+                        <button class="demo-btn secondary" id="phase4NextBtn" onclick="nextPhase()">Skip to Phase 4 →</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Phase 4: SSP Generation & Dashboard -->
+    <section id="phase4" class="page demo-page">
+        <div class="container">
+            <div class="demo-navigation">
+                <button class="nav-back" onclick="goToPhase(3)">← Back to Phase 3</button>
+                <div class="progress-indicator">
+                    <div class="step complete">✓</div>
+                    <div class="step complete">✓</div>
+                    <div class="step complete">✓</div>
+                    <div class="step active">4</div>
+                </div>
+                <div class="phase-title">Phase 4: SSP Generation & Dashboard</div>
+            </div>
+
+            <div class="demo-content">
+                <div class="demo-screen">
+                    <div class="browser-chrome">
+                        <div class="browser-dots">
+                            <span></span><span></span><span></span>
+                        </div>
+                        <div class="browser-url">judge.testifysec.com/products/customer-portal</div>
+                    </div>
+
+                    <div class="screen-content">
+                        <div class="ssp-dashboard" id="sspDashboard">
+                            <!-- Thinking State -->
+                            <div class="thinking-state" id="thinkingState">
+                                <div class="ai-agent">
+                                    <div class="agent-avatar">
+                                        <div class="ai-loader">
+                                            <div class="loader-ring"></div>
+                                        </div>
+                                    </div>
+                                    <div class="agent-activity">
+                                        <h3>AI Agent Working...</h3>
+                                        <div class="activity-status" id="activityStatus">Initializing analysis...</div>
+                                        <div class="activity-progress">
+                                            <div class="progress-bar">
+                                                <div class="progress-fill" id="progressFill"></div>
+                                            </div>
+                                            <span class="progress-text" id="progressText">0%</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="activity-log" id="activityLog">
+                                    <div class="log-header">Real-time Activity</div>
+                                    <div class="log-entries">
+                                        <!-- Log entries will be added here -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Completed State -->
+                            <div class="completed-state hidden" id="completedState">
+                                <div class="completion-celebration">
+                                    <div class="celebration-icon">
+                                        <svg class="w-16 h-16 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
+                                    </div>
+                                    <h2>Your SSP is Ready!</h2>
+                                    <p>Generated in 3 minutes, 42 seconds</p>
+                                </div>
+
+                                <div class="ssp-summary">
+                                    <div class="summary-grid">
+                                        <div class="summary-card">
+                                            <div class="card-icon">
+                                                <svg class="w-8 h-8 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+                                                </svg>
+                                            </div>
+                                            <div class="card-content">
+                                                <div class="card-number">47</div>
+                                                <div class="card-label">Controls Identified</div>
+                                            </div>
+                                        </div>
+                                        <div class="summary-card">
+                                            <div class="card-icon">
+                                                <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                                </svg>
+                                            </div>
+                                            <div class="card-content">
+                                                <div class="card-number">38</div>
+                                                <div class="card-label">Automatically Mapped</div>
+                                            </div>
+                                        </div>
+                                        <div class="summary-card">
+                                            <div class="card-icon">
+                                                <svg class="w-8 h-8 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                                                </svg>
+                                            </div>
+                                            <div class="card-content">
+                                                <div class="card-number">9</div>
+                                                <div class="card-label">Need Review</div>
+                                            </div>
+                                        </div>
+                                        <div class="summary-card">
+                                            <div class="card-icon">
+                                                <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                                                </svg>
+                                            </div>
+                                            <div class="card-content">
+                                                <div class="card-number">81%</div>
+                                                <div class="card-label">Compliance Score</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="ssp-actions">
+                                    <button class="primary-btn" onclick="showSSPAnalysis()">
+                                        <svg class="w-5 h-5 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                        </svg>
+                                        View Complete SSP
+                                    </button>
+                                    <button class="secondary-btn">
+                                        <svg class="w-5 h-5 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
+                                        Review Outstanding Items
+                                    </button>
+                                    <button class="secondary-btn">
+                                        <svg class="w-5 h-5 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                        </svg>
+                                        Export for Review
+                                    </button>
+                                </div>
+
+                                <div class="next-steps">
+                                    <h3>What's Next?</h3>
+                                    <ul>
+                                        <li>Review the 9 controls that need manual attention</li>
+                                        <li>Collaborate with your team on outstanding items</li>
+                                        <li>Export your SSP for stakeholder review</li>
+                                        <li>Set up automated monitoring for ongoing compliance</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="demo-explanation">
+                    <h3>⚡ Real-time Experience</h3>
+                    <ul>
+                        <li><strong>Visual feedback:</strong> Users see AI agent working in real-time</li>
+                        <li><strong>Progress tracking:</strong> Clear progress indicators and status updates</li>
+                        <li><strong>Activity logging:</strong> Transparent about what's happening behind the scenes</li>
+                        <li><strong>Celebration moment:</strong> Success state creates satisfaction and accomplishment</li>
+                        <li><strong>Clear next steps:</strong> Users know what to do after generation</li>
+                    </ul>
+                    
+                    <div class="demo-controls">
+                        <button class="demo-btn" onclick="startSSPGeneration()">Start SSP Generation</button>
+                        <button class="demo-btn secondary" onclick="showResults()">Skip to Results →</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SSP Analysis View -->
+    <section id="ssp-analysis" class="page demo-page">
+        <div class="container">
+            <div class="demo-navigation">
+                <button class="nav-back" onclick="goToPhase(4)">← Back to Dashboard</button>
+                <div class="phase-title">SSP Analysis: Customer Portal Platform</div>
+            </div>
+
+            <div class="demo-content">
+                <div class="demo-screen">
+                    <div class="browser-chrome">
+                        <div class="browser-dots">
+                            <span></span><span></span><span></span>
+                        </div>
+                        <div class="browser-url">judge.testifysec.com/products/customer-portal/ssp</div>
+                    </div>
+
+                    <div class="screen-content">
+                        <div class="ssp-analysis-view">
+                            <div class="ssp-header">
+                                <div class="ssp-title">
+                                    <h2>Customer Portal Platform SSP</h2>
+                                    <div class="ssp-meta">
+                                        <span class="compliance-framework">NIST 800-53 Rev 5</span>
+                                        <span class="generation-date">Generated: Dec 4, 2024</span>
+                                        <span class="status-badge complete">Complete</span>
+                                    </div>
+                                </div>
+                                <div class="ssp-actions-mini">
+                                    <button class="btn-mini">📤 Export</button>
+                                    <button class="btn-mini">🔄 Regenerate</button>
+                                </div>
+                            </div>
+
+                            <div class="ssp-overview">
+                                <div class="overview-cards">
+                                    <div class="overview-card">
+                                        <div class="card-number">47</div>
+                                        <div class="card-label">Total Controls</div>
+                                    </div>
+                                    <div class="overview-card implemented">
+                                        <div class="card-number">38</div>
+                                        <div class="card-label">Implemented</div>
+                                    </div>
+                                    <div class="overview-card pending">
+                                        <div class="card-number">9</div>
+                                        <div class="card-label">Need Review</div>
+                                    </div>
+                                    <div class="overview-card score">
+                                        <div class="card-number">81%</div>
+                                        <div class="card-label">Compliance</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="controls-section">
+                                <div class="section-header">
+                                    <h3>Control Implementation Summary</h3>
+                                    <div class="filter-tabs">
+                                        <button class="tab active">All (47)</button>
+                                        <button class="tab">Implemented (38)</button>
+                                        <button class="tab">Review Needed (9)</button>
+                                    </div>
+                                </div>
+
+                                <div class="controls-list">
+                                    <div class="control-item implemented">
+                                        <div class="control-header">
+                                            <div class="control-id">AC-2</div>
+                                            <div class="control-title">Account Management</div>
+                                            <div class="control-status">✅ Implemented</div>
+                                        </div>
+                                        <div class="control-implementation">
+                                            <strong>Implementation:</strong> Authentication handled via GitHub OAuth integration in web-app repository. User account creation and management implemented through API endpoints in api-service.
+                                        </div>
+                                        <div class="control-evidence">
+                                            <span class="evidence-tag">📁 web-app/auth.js</span>
+                                            <span class="evidence-tag">📁 api-service/users.py</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="control-item implemented">
+                                        <div class="control-header">
+                                            <div class="control-id">SC-7</div>
+                                            <div class="control-title">Boundary Protection</div>
+                                            <div class="control-status">✅ Implemented</div>
+                                        </div>
+                                        <div class="control-implementation">
+                                            <strong>Implementation:</strong> Network security groups and firewall rules configured in infrastructure repository. API gateway provides controlled access to backend services.
+                                        </div>
+                                        <div class="control-evidence">
+                                            <span class="evidence-tag">📁 infrastructure/network.tf</span>
+                                            <span class="evidence-tag">📁 infrastructure/security-groups.tf</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="control-item pending">
+                                        <div class="control-header">
+                                            <div class="control-id">AU-2</div>
+                                            <div class="control-title">Event Logging</div>
+                                            <div class="control-status">⚠️ Review Needed</div>
+                                        </div>
+                                        <div class="control-implementation">
+                                            <strong>Partial Implementation:</strong> Basic logging found in api-service. Requires review to ensure comprehensive audit logging meets NIST requirements.
+                                        </div>
+                                        <div class="control-evidence">
+                                            <span class="evidence-tag incomplete">📁 api-service/logging.py</span>
+                                            <span class="evidence-tag missing">❌ Centralized audit system</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="control-item implemented">
+                                        <div class="control-header">
+                                            <div class="control-id">SI-3</div>
+                                            <div class="control-title">Malicious Code Protection</div>
+                                            <div class="control-status">✅ Implemented</div>
+                                        </div>
+                                        <div class="control-implementation">
+                                            <strong>Implementation:</strong> Dependency scanning and vulnerability checks integrated in CI/CD pipeline. Container image scanning implemented.
+                                        </div>
+                                        <div class="control-evidence">
+                                            <span class="evidence-tag">📁 .github/workflows/security.yml</span>
+                                            <span class="evidence-tag">📁 Dockerfile</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="control-item pending">
+                                        <div class="control-header">
+                                            <div class="control-id">CP-2</div>
+                                            <div class="control-title">Contingency Plan</div>
+                                            <div class="control-status">⚠️ Review Needed</div>
+                                        </div>
+                                        <div class="control-implementation">
+                                            <strong>Missing Implementation:</strong> No disaster recovery or business continuity documentation found in repositories. Manual review required.
+                                        </div>
+                                        <div class="control-evidence">
+                                            <span class="evidence-tag missing">❌ Disaster recovery plan</span>
+                                            <span class="evidence-tag missing">❌ Backup procedures</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="load-more">
+                                    <button class="secondary-btn">Load More Controls (42 remaining)</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="demo-explanation">
+                    <h3>🎯 Generated SSP Analysis</h3>
+                    <ul>
+                        <li><strong>Automated mapping:</strong> Controls automatically mapped to code implementations</li>
+                        <li><strong>Evidence linking:</strong> Direct references to specific files and configurations</li>
+                        <li><strong>Gap identification:</strong> Clear highlighting of missing or incomplete controls</li>
+                        <li><strong>Compliance scoring:</strong> Real-time compliance percentage based on implementation</li>
+                        <li><strong>Actionable insights:</strong> Specific recommendations for addressing gaps</li>
+                    </ul>
+                    
+                    <div class="demo-controls">
+                        <button class="demo-btn secondary" onclick="goToPhase(4)">← Back to Dashboard</button>
+                        <button class="demo-btn secondary" onclick="showResults()">View Business Impact →</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results & Metrics Page -->
+    <section id="results" class="page">
+        <div class="container">
+            <header class="results-header">
+                <button class="nav-back" onclick="goToPhase(4)">← Back to Demo</button>
+                <h1>Business Impact & Success Metrics</h1>
+                <p>Why this epic delivers transformational value for the TestifySec Platform</p>
+            </header>
+
+            <div class="results-content">
+                <div class="impact-comparison">
+                    <h2>Onboarding Flow Analysis: Current vs. Proposed</h2>
+                    <div class="comparison-grid">
+                        <div class="comparison-column">
+                            <h3>📊 Current Onboarding Flow</h3>
+                            <div class="comparison-metrics">
+                                <div class="metric-item neutral">
+                                    <span class="metric-value">Multiple</span>
+                                    <span class="metric-label">Disconnected steps</span>
+                                    <span class="metric-note">User navigates between separate interfaces</span>
+                                </div>
+                                <div class="metric-item neutral">
+                                    <span class="metric-value">Manual</span>
+                                    <span class="metric-label">Configuration required</span>
+                                    <span class="metric-note">Users must manually configure integrations</span>
+                                </div>
+                                <div class="metric-item neutral">
+                                    <span class="metric-value">Limited</span>
+                                    <span class="metric-label">Contextual guidance</span>
+                                    <span class="metric-note">Minimal explanations of concepts</span>
+                                </div>
+                                <div class="metric-item neutral">
+                                    <span class="metric-value">Unclear</span>
+                                    <span class="metric-label">Progress indication</span>
+                                    <span class="metric-note">Users unsure of completion status</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="comparison-column">
+                            <h3>🎯 Proposed Onboarding Flow</h3>
+                            <div class="comparison-metrics">
+                                <div class="metric-item good">
+                                    <span class="metric-value">4-Step</span>
+                                    <span class="metric-label">Guided progression</span>
+                                    <span class="metric-note">Linear flow with clear next steps</span>
+                                </div>
+                                <div class="metric-item good">
+                                    <span class="metric-value">Automated</span>
+                                    <span class="metric-label">Smart defaults</span>
+                                    <span class="metric-note">Auto-detection and pre-filled forms</span>
+                                </div>
+                                <div class="metric-item good">
+                                    <span class="metric-value">Contextual</span>
+                                    <span class="metric-label">Educational content</span>
+                                    <span class="metric-note">Tooltips and explanations at each step</span>
+                                </div>
+                                <div class="metric-item good">
+                                    <span class="metric-value">Visual</span>
+                                    <span class="metric-label">Progress tracking</span>
+                                    <span class="metric-note">Step indicators and real-time feedback</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="analysis-notes">
+                        <h3>Key Design Improvements</h3>
+                        <ul>
+                            <li><strong>Reduced friction:</strong> OAuth integration eliminates manual account creation steps</li>
+                            <li><strong>Context awareness:</strong> Auto-detection of organization details from Git providers</li>
+                            <li><strong>Progressive disclosure:</strong> Information revealed as needed, reducing cognitive load</li>
+                            <li><strong>Visual feedback:</strong> Real-time progress indicators and status updates</li>
+                            <li><strong>Clear outcomes:</strong> Users understand what happens at each step completion</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="roi-calculator">
+                    <h2>ROI Impact Calculator</h2>
+                    <div class="roi-grid">
+                        <div class="roi-input">
+                            <label>New signups per month:</label>
+                            <input type="number" value="150" id="signupsInput" onchange="calculateROI()">
+                        </div>
+                        <div class="roi-output">
+                            <div class="roi-metric">
+                                <span class="roi-value" id="timesSaved">900</span>
+                                <span class="roi-label">hours saved per month</span>
+                            </div>
+                            <div class="roi-metric">
+                                <span class="roi-value" id="supportReduction">$12,000</span>
+                                <span class="roi-label">support cost savings</span>
+                            </div>
+                            <div class="roi-metric">
+                                <span class="roi-value" id="conversionIncrease">171</span>
+                                <span class="roi-label">additional successful onboardings</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="implementation-plan">
+                    <h2>Implementation Roadmap</h2>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-marker">1</div>
+                            <div class="timeline-content">
+                                <h3>Weeks 1-2: Foundation</h3>
+                                <p>Design new onboarding screens, create component library</p>
+                                <div class="timeline-tags">
+                                    <span class="tag">Design</span>
+                                    <span class="tag">Frontend</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker">2</div>
+                            <div class="timeline-content">
+                                <h3>Weeks 3-4: Core Flow</h3>
+                                <p>Implement signup, GitHub integration, and repository detection</p>
+                                <div class="timeline-tags">
+                                    <span class="tag">Backend</span>
+                                    <span class="tag">Integration</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker">3</div>
+                            <div class="timeline-content">
+                                <h3>Weeks 5-6: SSP Generation</h3>
+                                <p>Build real-time status updates and dashboard interface</p>
+                                <div class="timeline-tags">
+                                    <span class="tag">AI/ML</span>
+                                    <span class="tag">Real-time</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker">4</div>
+                            <div class="timeline-content">
+                                <h3>Weeks 7-8: Testing & Launch</h3>
+                                <p>A/B testing, performance optimization, gradual rollout</p>
+                                <div class="timeline-tags">
+                                    <span class="tag">Testing</span>
+                                    <span class="tag">Launch</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="risk-mitigation">
+                    <h2>Risk Assessment & Mitigation</h2>
+                    <div class="risk-grid">
+                        <div class="risk-item low">
+                            <h3>Technical Integration</h3>
+                            <p><strong>Risk:</strong> GitHub App integration complexity</p>
+                            <p><strong>Mitigation:</strong> Leverage existing OAuth infrastructure, thorough testing</p>
+                        </div>
+                        <div class="risk-item low">
+                            <h3>User Adoption</h3>
+                            <p><strong>Risk:</strong> Users skip new onboarding flow</p>
+                            <p><strong>Mitigation:</strong> A/B testing, gradual rollout with feedback loops</p>
+                        </div>
+                        <div class="risk-item medium">
+                            <h3>Performance Impact</h3>
+                            <p><strong>Risk:</strong> Real-time updates affect system performance</p>
+                            <p><strong>Mitigation:</strong> Caching strategy, optimized database queries, monitoring</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta-section">
+                    <h2>Ready to Transform User Onboarding?</h2>
+                    <p>This epic delivers measurable business value while dramatically improving user experience.</p>
+                    
+                    <div class="cta-buttons">
+                        <button class="cta-button" onclick="goToLanding()">
+                            Experience Demo Again
+                        </button>
+                        <button class="cta-button secondary" onclick="window.print()">
+                            Export Summary
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation and loading overlay -->
+    <div class="loading-overlay hidden" id="loadingOverlay">
+        <div class="loading-content">
+            <div class="loading-spinner large"></div>
+            <h3 id="loadingTitle">Installing GitHub App...</h3>
+            <p id="loadingSubtext">This will only take a moment</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
